@@ -10,6 +10,8 @@ import {
 import Cards from "./_components/cards";
 
 export default function Home() {
+  const test = 123;
+  
   return (
     <Container>
       <Head>
