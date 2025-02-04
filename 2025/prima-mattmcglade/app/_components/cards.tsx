@@ -14,7 +14,7 @@ const Card = styled.div`
   padding: 1.5rem;
   color: inherit;
   text-decoration: none;
-  border: 1px solid black;
+  border: 1px solid #000000;
   border-radius: 10px;
   transition:
     color 0.15s ease,
@@ -30,7 +30,7 @@ const Card = styled.div`
 `;
 
 const StyledLink = styled(Link)`
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   font-size: 1.5rem;
 `;
 

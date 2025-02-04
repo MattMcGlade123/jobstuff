@@ -28,6 +28,7 @@ const Title = styled.h1`
   a {
     color: ${({ theme }) => theme.colors.secondary};
     text-decoration: none;
+
     &:hover,
     :focus,
     :active {
@@ -50,11 +51,11 @@ const CodeTag = styled.code`
   font-family:
     Menlo,
     Monaco,
-    Lucida Console,
-    Liberation Mono,
-    DejaVu Sans Mono,
-    Bitstream Vera Sans Mono,
-    Courier New,
+    "Lucida Console",
+    "Liberation Mono",
+    "DejaVu Sans Mono",
+    "Bitstream Vera Sans Mono",
+    "Courier New",
     monospace;
 `;
 
