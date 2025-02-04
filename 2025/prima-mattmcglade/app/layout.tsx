@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
-import StyledComponentsRegistry from "@/lib/styled-components-registry";
-import ClientLayout from "@/lib/client-layout";
-import StoreProvider from "@/lib/StoreProvider";
+import { ReactNode } from 'react';
+import StyledComponentsRegistry from '@/lib/styled-components-registry';
+import ClientLayout from '@/lib/client-layout';
+import StoreProvider from '@/lib/StoreProvider';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

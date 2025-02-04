@@ -1,17 +1,11 @@
-"use client";
-import Head from "next/head";
-import {
-  Container,
-  Main,
-  Title,
-  Description,
-  CodeTag,
-} from "./_components/sharedstyles";
-import Cards from "./_components/cards";
+'use client';
+import Head from 'next/head';
+import { Container, Main, Title, Description, CodeTag } from './_components/sharedstyles';
+import Cards from './_components/cards';
 
 export default function Home() {
   const test = 123;
-  
+
   return (
     <Container>
       <Head>
