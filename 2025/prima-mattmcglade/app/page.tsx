@@ -4,8 +4,6 @@ import { Container, Main, Title, Description, CodeTag } from './_components/shar
 import Cards from './_components/cards';
 
 export default function Home() {
-  const test = 123;
-
   return (
     <Container>
       <Head>
