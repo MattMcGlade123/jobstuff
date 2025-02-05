@@ -1,5 +1,9 @@
 import React, { ChangeEvent, FC } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faMagnifyingGlass
 
+} from '@fortawesome/free-solid-svg-icons'
 
 import {
   StyledAddressList,
@@ -28,6 +32,7 @@ const SearchBoxStructure: FC<DeliveryInformationInterface> = ({
         placeholder="Type something..."
         className="border p-2 rounded"
       />
+      <FontAwesomeIcon icon={faMagnifyingGlass} />
     </div>
   );
 };

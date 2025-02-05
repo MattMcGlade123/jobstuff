@@ -1,9 +1,9 @@
 import React from 'react';
 
-import DeliveryInformationLogic from './SearchBoxLogic';
+import SearchBoxLogic from './SearchBoxLogic';
 
-const DeliveryInformation = () => {
-  return <DeliveryInformationLogic />;
+const SearchBox = () => {
+  return <SearchBoxLogic />;
 };
 
-export default DeliveryInformation;
+export default SearchBox;
