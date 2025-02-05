@@ -9,7 +9,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <StoreProvider>
           <StyledComponentsRegistry>
-            <ClientLayout>{children}</ClientLayout>
+            <main>
+              <ClientLayout>{children}</ClientLayout>
+            </main>
           </StyledComponentsRegistry>
         </StoreProvider>
       </body>
