@@ -5,6 +5,12 @@ declare module 'styled-components' {
     colors: {
       primary: string;
       secondary: string;
+      lightGrey: string;
+      grey: string;
     };
+    devices: {
+      medium: string;
+      large: string;
+    }
   }
 }

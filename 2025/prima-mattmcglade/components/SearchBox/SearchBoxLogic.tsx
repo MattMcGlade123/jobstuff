@@ -3,19 +3,19 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
 import SearchBoxStructure from './SearchBoxStructure';
-import { useDispatch } from 'react-redux';
+import useSearchData from '@/utils/customHooks/useSearchData';
 
 const SearchBoxLogic = () => {
   const [currentSearchValue, setCurrentSearchValue] = useState<string>('');
-  const dispatch = useDispatch();
+  const { searchData } = useSearchData();
 
   const handleChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     setCurrentSearchValue(event.target.value);
   }, []);
 
   useEffect(() => {
-    if (currentSearchValue && currentSearchValue?.length > 2) {
-      // dispatch(currentSearchValue)
+    if (currentSearchValue) {
+      searchData(currentSearchValue);
     }
   }, [currentSearchValue])
 

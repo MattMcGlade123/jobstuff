@@ -3,7 +3,10 @@ export interface FavouriteState {
 }
 
 export interface SiteDataState {
-  siteData: null
+  siteData: Recipe[] | null,
+  listData: Recipe[] | null,
+  noResults: boolean;
+  error: any
 }
 
 export interface Recipe {

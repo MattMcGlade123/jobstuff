@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors.primary};
     padding: 0;
     margin: 0;
+    font-size: 10px;
   }
 
   a {

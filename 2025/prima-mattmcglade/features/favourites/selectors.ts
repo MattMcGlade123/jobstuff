@@ -1,3 +1,3 @@
-import { RootState } from '../../../reduxStore/store';
+import { RootState } from "@/lib/store";
 
-export const selectAuth = (state: RootState): boolean => state.auth.isAuth;
+export const selectFavList = (state: RootState): string[] => state.favourites.favList;

@@ -6,11 +6,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
-  StyledAddressList,
-  StyledCandCPrice,
-  StyledDetails,
-  StyledEditButton,
-  StyledTitle,
+  StyledWrapper,
+  StyledInput,
 } from './SearchBoxStyles';
 
 interface DeliveryInformationInterface {
@@ -23,8 +20,8 @@ const SearchBoxStructure: FC<DeliveryInformationInterface> = ({
   handleChange
 }) => {
   return (
-    <div>
-      <input
+    <StyledWrapper>
+      <StyledInput
         data-testid="searchBox"
         type="text"
         value={currentSearchValue}
@@ -33,7 +30,7 @@ const SearchBoxStructure: FC<DeliveryInformationInterface> = ({
         className="border p-2 rounded"
       />
       <FontAwesomeIcon icon={faMagnifyingGlass} />
-    </div>
+    </StyledWrapper>
   );
 };
 

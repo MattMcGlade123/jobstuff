@@ -21,6 +21,7 @@ const DataPush: FC<DataPushInterface> = ({
   const dispatch = useDispatch();
 
   if (allData) {
+    console.log('allData', allData)
     dispatch(updateSiteData(allData));
   }
 
