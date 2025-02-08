@@ -21,9 +21,20 @@ export default async function Home() {
       }
       const data = await response.json();
 
-      const updatedRecipes = data.recipes.map((recipe: Recipe) => ({
+      // const getImageUrl = async () => {
+      //   const randomImageResponse = await fetch(`https://source.unsplash.com/400x300/?food`);
+      //   const randomImageData = await randomImageResponse.json();
+      //   return randomImageData.image;
+      // };
+
+      // Just adding random food image but sadly it won't make the actual recipe unless I get really lucky!
+      // const randomFoodImage = data.recipes.map(() => getImageUrl());
+      // const imageUrls = await Promise.all(randomFoodImage);
+
+      const updatedRecipes = data.recipes.map((recipe: Recipe, index: number) => ({
         ...recipe,
-        image: `https://source.unsplash.com/400x300/?food,${recipe.name}`, // Dynamic image from Unsplash
+        // image: imageUrls[index],
+        image: `https://loremflickr.com/400/300/food?random=${Math.random()}`
       }));
 
       dataResponse = updatedRecipes;

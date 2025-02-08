@@ -4,17 +4,17 @@ import RecipePageLogic from './RecipePageLogic';
 export function generateMetadata(params: { params: { id: number } }): Metadata {
   const orderId = params?.params?.id;
   return {
-    title: `Recipe # ${orderId}`,
+    title: `Recipe ${orderId}`,
   };
 }
 
 export default async function Page({
   params,
 }: {
-  params: { id: number };
+  params: { recipeId: number };
 }) {
 
   return (
-    <RecipePageLogic id={params.id} />
+    <RecipePageLogic recipeId={params.recipeId} />
   );
 }

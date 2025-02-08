@@ -1,6 +1,7 @@
 import { Recipe } from '@/custom-type';
 import React, { FC } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 // import {
 //   StyledHeader
@@ -15,10 +16,10 @@ const RecipeListStructure: FC<RecipeListStructureProps> = ({ currentList, showNo
   return (
     <div data-testid="RecipeList">
       {currentList && currentList.map((thisListItem) => (
-        <div key={thisListItem.id}>
+        <Link href={`recipe-page/${thisListItem.id}`} key={thisListItem.id}>
           <p>{thisListItem.name}</p>
-          <Image src={thisListItem.image} alt={thisListItem.name} />
-        </div>
+          <Image src={thisListItem.image} alt={thisListItem.name} width={200} height={200} />
+        </Link>
       ))}
       {showNoResults && <p>Sorry there were no results for that search</p>}
     </div>

@@ -6,9 +6,9 @@ import { useSelector } from 'react-redux';
 import RecipePageStructure from './RecipePageStructure';
 
 
-const RecipePageLogic: FC<{ id: number }> = ({ id }) => {
+const RecipePageLogic: FC<{ recipeId: number }> = ({ recipeId }) => {
   const allListData = useSelector(selectListData);
-  const thisRecipe = allListData?.find((recipe) => recipe.id === id);
+  const thisRecipe = allListData?.find((recipe) => recipe.id === recipeId);
 
   const componentProps = {
     thisRecipe
