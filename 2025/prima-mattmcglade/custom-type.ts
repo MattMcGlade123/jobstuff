@@ -1,5 +1,5 @@
 export interface FavouriteState {
-  favList: string[]
+  favList: number[]
 }
 
 export interface SiteDataState {

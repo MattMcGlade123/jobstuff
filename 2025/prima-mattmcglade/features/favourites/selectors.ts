@@ -1,3 +1,3 @@
 import { RootState } from "@/lib/store";
 
-export const selectFavList = (state: RootState): string[] => state.favourites.favList;
+export const selectFavList = (state: RootState): number[] => state.favourites.favList;

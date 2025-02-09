@@ -1,9 +1,9 @@
 'use client';
 
 import { Recipe } from '@/custom-type';
-import { updateError, updateSiteData } from '@/features/siteData';
+import { selectSiteData, updateError, updateSiteData } from '@/features/siteData';
 import React, { FC } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 interface DataPushInterface {
@@ -19,8 +19,9 @@ const DataPush: FC<DataPushInterface> = ({
   error
 }) => {
   const dispatch = useDispatch();
+  const siteData = useSelector(selectSiteData)
 
-  if (allData) {
+  if (allData && siteData === null) {
     console.log('allData', allData)
     dispatch(updateSiteData(allData));
   }

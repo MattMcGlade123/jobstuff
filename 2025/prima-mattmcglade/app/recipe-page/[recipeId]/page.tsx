@@ -8,13 +8,8 @@ export function generateMetadata(params: { params: { id: number } }): Metadata {
   };
 }
 
-export default async function Page({
-  params,
-}: {
-  params: { recipeId: number };
-}) {
+export default async function Page(props: { params: { recipeId: number } }) {
+  const recipeId = props?.params?.recipeId;
 
-  return (
-    <RecipePageLogic recipeId={params.recipeId} />
-  );
+  return <RecipePageLogic recipeId={recipeId} />;
 }
