@@ -20,7 +20,7 @@ export const mockImages = [
   {url: '/images/moussaka.avif'},
   {url: '/images/butter-chicken.jpg'},
   {url: '/images/green-curry.jpg'},
-  {url: '/images/mango-lassi.jpg'},
+  {url: '/images/mango-lassi.webp'},
   {url: '/images/tiramisu.jpg'},
   {url: '/images/kebab-2.jpg'},
   {url: '/images/smoothie.jpg'},

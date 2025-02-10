@@ -3,7 +3,12 @@ import styled from 'styled-components';
 export const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: initial;
+  }
 
   @media ${({ theme }) => theme.devices.large} {
     flex-direction: row;
@@ -11,13 +16,9 @@ export const StyledWrapper = styled.div`
     gap: 2rem;
 
     > div {
-      min-width: 24%;
-
-      img {
-        width: 100%;
-        object-fit: cover;
-        aspect-ratio: initial;
-      }
+      flex-grow: 1;
+      flex-shrink: 1;
+      min-width: calc(25% - 2rem);
     }
   }
 `;

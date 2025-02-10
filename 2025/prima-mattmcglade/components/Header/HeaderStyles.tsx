@@ -30,6 +30,6 @@ export const StyledHeader = styled.header`
 
   > div {
     margin-left: 0;
-    margin-right: 2rem;
+    margin-right: 5rem;
   }
 `;

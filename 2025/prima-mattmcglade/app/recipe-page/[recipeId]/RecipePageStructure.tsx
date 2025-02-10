@@ -1,6 +1,6 @@
 'use client';
 
-import { StyleContainer } from './RecipePageStyles';
+import { StyleContainer, StyledInner, StyledTitle, StyleIngList } from './RecipePageStyles';
 import { FC } from 'react';
 import Image from 'next/image';
 import { Recipe } from '@/custom-type';
@@ -9,13 +9,6 @@ import Like from '@/components/Like';
 interface RecipePageStructureProps {
   thisRecipe: Recipe | undefined
 }
-
-/*
-
-detailed information, including ingredients,
-instructions, and preparation time.
-
-*/
 
 const RecipePageStructure: FC<RecipePageStructureProps> = ({ thisRecipe }) => {
   return (
@@ -26,15 +19,18 @@ const RecipePageStructure: FC<RecipePageStructureProps> = ({ thisRecipe }) => {
 
       {thisRecipe && (
         <>
-          <h2 data-testid="recipe-name">{thisRecipe.name} <Like thisId={thisRecipe.id} /></h2>
-          <Image data-testid="recipe-image" src={thisRecipe.image} alt={thisRecipe.name} width={500} height={400} />
-          <h3>Ingredients</h3>
-          <ul>
-            {thisRecipe.ingredients.map((thisIngredient) => (
-              <li key={thisIngredient}>{thisIngredient}</li>
-            ))}
-          </ul>
-          <p data-testid="recipe-ingredients">{thisRecipe.ingredients}</p>
+          <StyledTitle data-testid="recipe-name">{thisRecipe.name} <Like thisId={thisRecipe.id} /></StyledTitle>
+          <StyledInner>
+            <Image data-testid="recipe-image" src={thisRecipe.image} alt={thisRecipe.name} width={500} height={400} />
+            <div>
+              <h3>Ingredients</h3>
+              <StyleIngList>
+                {thisRecipe.ingredients.map((thisIngredient) => (
+                  <li key={thisIngredient}>{thisIngredient}</li>
+                ))}
+              </StyleIngList>
+            </div>
+          </StyledInner>
           <h3>Cooking Instructions</h3>
           <p data-testid="recipe-instructions">{thisRecipe.instructions}</p>
         </>

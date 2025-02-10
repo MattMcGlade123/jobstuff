@@ -17,6 +17,18 @@ const GlobalStyle = createGlobalStyle`
   p, li {
     font-size: 1.4rem;
   }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+  }
+
+  main {
+    padding: 0 2rem;
+  }
 `;
 
 export default GlobalStyle;
