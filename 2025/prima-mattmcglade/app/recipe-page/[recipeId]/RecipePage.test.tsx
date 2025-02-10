@@ -9,7 +9,18 @@ const mockRecipe: Recipe = {
   name: 'Cake',
   image: 'url',
   ingredients: ['some ingredients'],
-  instructions: 'instructions'
+  instructions: ['instructions'],
+  prepTimeMinutes: 10,
+  cookTimeMinutes: 10,
+  servings: 2,
+  difficulty: 'hard',
+  cuisine: 'french',
+  caloriesPerServing: 500,
+  tags:['tag'],
+  userId: 1,
+  rating: 30,
+  reviewCount: 2,
+  mealType: ['dinner']
 }
 
 describe('RecipePageStructure', () => {

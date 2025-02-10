@@ -21,7 +21,9 @@ const FavDropdownStructure: FC<FavListProps> = ({ favList }) => {
         {favList?.length === 0 && <p>You have no favourites saved</p>}
         <StyleList data-testid="favList">
           {favList?.map((thisFav) => (
-            <Link href={`/recipe-page/${thisFav.id}`} key={thisFav.id}>{thisFav.name}</Link>
+            <li key={thisFav.id}>
+              <Link href={`/recipe-page/${thisFav.id}`}>{thisFav.name}</Link>
+            </li>
           ))}
         </StyleList>
       </StyledWrapperInner>

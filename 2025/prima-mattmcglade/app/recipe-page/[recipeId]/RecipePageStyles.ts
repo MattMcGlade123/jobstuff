@@ -6,8 +6,11 @@ export const StyleContainer = styled.div`
 `;
 
 export const StyledInner = styled.div`
-  display: flex;
-  flex-direction: row;
+  @media ${({ theme }) => theme.devices.large} {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+  }
 
   img {
     width: 100%;
@@ -20,12 +23,27 @@ export const StyledInner = styled.div`
   }
 `;
 
-export const StyleIngList = styled.ul`
-  list-style: none;
-  padding: 0%;
-  margin: 0;
+export const StyleIngWrapper = styled.div`
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
+
+  @media ${({ theme }) => theme.devices.large} {
+    padding-right: 4rem;
+    margin-right: 4rem;
+    border-right: 1px solid ${({ theme }) => theme.colors.grey};
+    border-bottom: none;
+  }
 `;
 
-export const StyledTitle = styled.h2`
+export const StyleIngList = styled.ul`
+  padding: 1rem;
+
+  > li {
+    margin-bottom: 1rem;
+  }
+`;
+
+export const StyledSubTitle = styled.p`
   font-size: 2rem;
 `;

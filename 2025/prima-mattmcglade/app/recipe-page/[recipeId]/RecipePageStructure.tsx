@@ -1,6 +1,6 @@
 'use client';
 
-import { StyleContainer, StyledInner, StyledTitle, StyleIngList } from './RecipePageStyles';
+import { StyleContainer, StyledInner, StyledSubTitle, StyleIngList, StyleIngWrapper } from './RecipePageStyles';
 import { FC } from 'react';
 import Image from 'next/image';
 import { Recipe } from '@/custom-type';
@@ -19,20 +19,36 @@ const RecipePageStructure: FC<RecipePageStructureProps> = ({ thisRecipe }) => {
 
       {thisRecipe && (
         <>
-          <StyledTitle data-testid="recipe-name">{thisRecipe.name} <Like thisId={thisRecipe.id} /></StyledTitle>
+          <h2 data-testid="recipe-name">{thisRecipe.name} <Like thisId={thisRecipe.id} /></h2>
           <StyledInner>
             <Image data-testid="recipe-image" src={thisRecipe.image} alt={thisRecipe.name} width={500} height={400} />
             <div>
+              <StyledSubTitle>Difficulty</StyledSubTitle>
+              <p>{thisRecipe.difficulty}</p>
+              <StyledSubTitle>Prep Time</StyledSubTitle>
+              <p>{thisRecipe.prepTimeMinutes}m</p>
+              <StyledSubTitle>Cooking Time</StyledSubTitle>
+              <p>{thisRecipe.cookTimeMinutes}m</p>
+              <StyledSubTitle>Serves</StyledSubTitle>
+              <p>{thisRecipe.servings}</p>
+            </div>
+          </StyledInner>
+          <StyledInner>
+            <StyleIngWrapper>
               <h3>Ingredients</h3>
               <StyleIngList>
                 {thisRecipe.ingredients.map((thisIngredient) => (
                   <li key={thisIngredient}>{thisIngredient}</li>
                 ))}
               </StyleIngList>
+            </StyleIngWrapper>
+            <div data-testid="recipe-instructions">
+              <h3>Cooking Instructions</h3>
+              {thisRecipe.instructions.map((thisInstruction) => (
+                <p key={thisInstruction}>{thisInstruction}</p>
+              ))}
             </div>
           </StyledInner>
-          <h3>Cooking Instructions</h3>
-          <p data-testid="recipe-instructions">{thisRecipe.instructions}</p>
         </>
       )}
 
