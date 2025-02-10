@@ -10,6 +10,12 @@ const tangerine = Tangerine({
 export const StyledHeader = styled.header`
   display: flex;
   justify-content: center;
+  align-items: center;
+  position: relative;
+
+  > a {
+    margin: 0 auto
+  }
 
   h1 {
     font-family: ${tangerine.style.fontFamily};
@@ -20,5 +26,10 @@ export const StyledHeader = styled.header`
     > svg {
       font-size: 5rem;
     }
+  }
+
+  > div {
+    margin-left: 0;
+    margin-right: 2rem;
   }
 `;

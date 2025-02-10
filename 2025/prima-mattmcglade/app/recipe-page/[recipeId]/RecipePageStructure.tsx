@@ -4,6 +4,7 @@ import { StyleContainer } from './RecipePageStyles';
 import { FC } from 'react';
 import Image from 'next/image';
 import { Recipe } from '@/custom-type';
+import Like from '@/components/Like';
 
 interface RecipePageStructureProps {
   thisRecipe: Recipe | undefined
@@ -25,7 +26,7 @@ const RecipePageStructure: FC<RecipePageStructureProps> = ({ thisRecipe }) => {
 
       {thisRecipe && (
         <>
-          <h2 data-testid="recipe-name">{thisRecipe.name}</h2>
+          <h2 data-testid="recipe-name">{thisRecipe.name} <Like thisId={thisRecipe.id} /></h2>
           <Image data-testid="recipe-image" src={thisRecipe.image} alt={thisRecipe.name} width={500} height={400} />
           <h3>Ingredients</h3>
           <ul>

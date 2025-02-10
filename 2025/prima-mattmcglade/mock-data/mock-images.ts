@@ -17,7 +17,7 @@ export const mockImages = [
   {url: '/images/ramen.jpg'},
   {url: '/images/tagine.jpg'},
   {url: '/images/bibimbap.jpg'},
-  {url: '/images/moussaka.jpg'},
+  {url: '/images/moussaka.avif'},
   {url: '/images/butter-chicken.jpg'},
   {url: '/images/green-curry.jpg'},
   {url: '/images/mango-lassi.jpg'},

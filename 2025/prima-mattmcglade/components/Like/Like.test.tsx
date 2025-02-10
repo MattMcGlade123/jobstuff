@@ -6,7 +6,9 @@ import LikeStructure from './LikeStructure';
 const handleClick = jest.fn()
 
 const props = {
-  handleClick
+  handleClick,
+  thisId: 2,
+  isInList: false
 }
 
 describe('LikeStructure', () => {

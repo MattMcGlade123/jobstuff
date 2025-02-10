@@ -2,10 +2,12 @@ import { Recipe } from '@/custom-type';
 import React, { FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Like from '../Like';
 
-// import {
-//   StyledHeader
-// } from './RecipeListStyles';
+import {
+  StyledWrapper,
+  StyledTitle
+} from './RecipeListStyles';
 
 interface RecipeListStructureProps {
   currentList: Recipe[] | null;
@@ -14,15 +16,18 @@ interface RecipeListStructureProps {
 
 const RecipeListStructure: FC<RecipeListStructureProps> = ({ currentList, showNoResults }) => {
   return (
-    <div data-testid="RecipeList">
+    <StyledWrapper data-testid="RecipeList">
       {currentList && currentList.map((thisListItem) => (
-        <Link href={`recipe-page/${thisListItem.id}`} key={thisListItem.id}>
-          <p>{thisListItem.name}</p>
-          <Image src={thisListItem.image} alt={thisListItem.name} width={200} height={200} />
-        </Link>
+        <div key={thisListItem.id}>
+          <StyledTitle>{thisListItem.name} <Like thisId={thisListItem.id} /></StyledTitle>
+
+          <Link href={`recipe-page/${thisListItem.id}`} key={thisListItem.id}>
+            <Image src={thisListItem.image} alt={thisListItem.name} width={200} height={200} />
+          </Link>
+        </div>
       ))}
       {showNoResults && <p>Sorry there were no results for that search</p>}
-    </div>
+    </StyledWrapper>
   );
 };
 

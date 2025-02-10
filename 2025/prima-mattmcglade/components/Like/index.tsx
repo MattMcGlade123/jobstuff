@@ -7,7 +7,6 @@ export interface LikeProps {
 }
 
 const Like: FC<LikeProps> = ({ thisId }) => {
-
   return <LikeLogic thisId={thisId} />;
 };
 

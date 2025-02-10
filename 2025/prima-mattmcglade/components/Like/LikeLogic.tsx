@@ -22,6 +22,7 @@ const LikeLogicLogic: FC<LikeProps> = ({ thisId }) => {
   };
 
   const componentProps = {
+    thisId,
     isInList,
     handleClick
   }

@@ -13,6 +13,10 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
+
+  p, li {
+    font-size: 1.4rem;
+  }
 `;
 
 export default GlobalStyle;

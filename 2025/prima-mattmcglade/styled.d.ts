@@ -7,6 +7,7 @@ declare module 'styled-components' {
       secondary: string;
       lightGrey: string;
       grey: string;
+      red: string;
     };
     devices: {
       medium: string;
