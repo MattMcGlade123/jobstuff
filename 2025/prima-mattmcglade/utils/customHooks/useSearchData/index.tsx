@@ -1,6 +1,5 @@
-import { Recipe } from "@/custom-type";
 import { selectSiteData, updateList, updateNoResults } from "@/features/siteData";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 interface UseSearchDataReturn {
@@ -10,47 +9,39 @@ interface UseSearchDataReturn {
 const useSearchData = (): UseSearchDataReturn => {
   const dispatch = useDispatch();
   const allData = useSelector(selectSiteData);
-  const [filteredData, setFilteredData] = useState<Recipe[] | null>(null);
-  const [noResults, setNoResults] = useState(false)
+  const [searchValue, setSearchValue] = useState<string>("");
 
-  const searchData = (searchValue: string) => {
+  const filteredData = useMemo(() => {
+    if (!searchValue.trim()) return null
+
     const searchLowerCase = searchValue.toLowerCase();
+    return allData?.filter((recipe) => {
+      const titleMatch = recipe.name.toLowerCase().includes(searchLowerCase);
+      const ingredientMatch = recipe.ingredients.some((ingredient) =>
+        ingredient.toLowerCase().includes(searchLowerCase)
+      );
 
-    const updateData = allData?.filter((thisRecipe) => {
-      const thisRecipeTitleLowerCase = thisRecipe.name.toLowerCase();
-      const thisRecipeIngredients = thisRecipe.ingredients;
+      return titleMatch || ingredientMatch;
+    }) ?? [];
+  }, [allData, searchValue]);
 
-      if (thisRecipeTitleLowerCase.indexOf(searchLowerCase) !== -1) {
-        return thisRecipe;
-      }
-
-      const ingredientMatches = thisRecipeIngredients.some((thisIngredient) => (
-        thisIngredient.toLowerCase().includes(searchLowerCase)
-      ));
-
-      return ingredientMatches;
-
-    })
-
-    if (updateData) {
-      setFilteredData(updateData)
-    }
-    else {
-      setNoResults(true)
-    }
-  }
+  const noResults = useMemo(() => filteredData?.length === 0, [filteredData]);
 
   useEffect(() => {
-    dispatch(updateNoResults(noResults))
-  }, [dispatch, noResults])
+    dispatch(updateNoResults(noResults));
+  }, [dispatch, noResults]);
 
   useEffect(() => {
     if (filteredData) {
-      dispatch(updateList(filteredData))
+      dispatch(updateList(filteredData));
     }
-  }, [dispatch, filteredData])
+  }, [dispatch, filteredData]);
 
-  return { searchData }
-}
+  const searchData = useCallback((value: string) => {
+    setSearchValue(value);
+  }, []);
+
+  return { searchData };
+};
 
 export default useSearchData;

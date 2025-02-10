@@ -4,8 +4,11 @@ import React, { useCallback, useEffect, useState } from 'react';
 
 import SearchBoxStructure from './SearchBoxStructure';
 import useSearchData from '@/utils/customHooks/useSearchData';
+import { useDispatch } from 'react-redux';
+import { updateList } from '@/features/siteData';
 
 const SearchBoxLogic = () => {
+  const dispatch = useDispatch();
   const [currentSearchValue, setCurrentSearchValue] = useState<string>('');
   const { searchData } = useSearchData();
 
@@ -17,7 +20,10 @@ const SearchBoxLogic = () => {
     if (currentSearchValue) {
       searchData(currentSearchValue);
     }
-  }, [currentSearchValue])
+    else if (currentSearchValue === '') {
+      dispatch(updateList(null));
+    }
+  }, [currentSearchValue, searchData, dispatch])
 
   const componentProps = {
     handleChange,
