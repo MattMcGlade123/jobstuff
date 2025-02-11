@@ -14,12 +14,20 @@ export const StyledHeader = styled.header`
 
   h1 {
     font-family: ${tangerine.style.fontFamily};
-    font-size: 10rem;
+    font-size: 6.5rem;
     font-weight: 400;
     font-style: normal;
 
+    @media ${({ theme }) => theme.devices.large} {
+      font-size: 10rem;
+    }
+
     > svg {
-      font-size: 5rem;
+      font-size: 3rem;
+
+      @media ${({ theme }) => theme.devices.large} {
+        font-size: 5rem;
+      }
     }
   }
 

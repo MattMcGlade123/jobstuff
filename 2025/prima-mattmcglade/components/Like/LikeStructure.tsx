@@ -21,8 +21,8 @@ const LikeStructure: FC<DeliveryInformationInterface> = ({
   handleClick
 }) => {
   return (
-    <StyledWrapper $isInList={isInList}>
-      <FontAwesomeIcon icon={faHeart} onClick={() => handleClick(thisId)} />
+    <StyledWrapper data-testid="like" $isInList={isInList}>
+      <FontAwesomeIcon data-testid="likeButton" icon={faHeart} onClick={() => handleClick(thisId)} />
     </StyledWrapper>
   );
 };

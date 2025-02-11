@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { render } from '../../../utils/test-utils';
+import { cleanup, render } from '../../../utils/test-utils';
 import RecipePageStructure from './RecipePageStructure';
 import { Recipe } from '@/custom-type';
 
 const mockRecipe: Recipe = {
   id: 1,
   name: 'Cake',
-  image: 'url',
+  image: '/url',
   ingredients: ['some ingredients'],
   instructions: ['instructions'],
   prepTimeMinutes: 10,
@@ -16,7 +16,7 @@ const mockRecipe: Recipe = {
   difficulty: 'hard',
   cuisine: 'french',
   caloriesPerServing: 500,
-  tags:['tag'],
+  tags: ['tag'],
   userId: 1,
   rating: 30,
   reviewCount: 2,
@@ -24,6 +24,10 @@ const mockRecipe: Recipe = {
 }
 
 describe('RecipePageStructure', () => {
+  afterEach(() => {
+    cleanup();
+  });
+
   test('RecipePageStructure to render all components', async () => {
     const { getByTestId } = render(<RecipePageStructure thisRecipe={mockRecipe} />);
 
@@ -43,7 +47,7 @@ describe('RecipePageStructure', () => {
   test('RecipePageStructure to render error if theres no recipe', async () => {
     const { getByText } = render(<RecipePageStructure thisRecipe={undefined} />);
 
-    const errorMessage = getByText(' Sorry, theres not recipe for this ID');
+    const errorMessage = getByText('Sorry, theres not recipe for this ID');
 
     expect(errorMessage).toBeInTheDocument();
   });

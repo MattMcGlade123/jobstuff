@@ -2,11 +2,14 @@ import React, { ReactElement } from 'react'
 import { render, RenderOptions } from '@testing-library/react'
 import { theme } from '@/styles/theme'
 import { ThemeProvider } from 'styled-components'
+import StoreProvider from '@/lib/StoreProvider'
 
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeProvider theme={theme}>
-      {children}
+      <StoreProvider>
+        {children}
+      </StoreProvider>
     </ThemeProvider>
   )
 }

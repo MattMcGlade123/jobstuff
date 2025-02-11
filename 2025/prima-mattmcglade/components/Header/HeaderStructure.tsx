@@ -1,7 +1,6 @@
 'use client'
 
 import React, { FC } from 'react';
-import FavDropdown from '../FavDropdown';
 import { faUtensils } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

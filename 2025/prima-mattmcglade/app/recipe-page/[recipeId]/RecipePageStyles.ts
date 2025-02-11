@@ -17,7 +17,7 @@ export const StyledInner = styled.div`
     object-fit: cover;
 
     @media ${({ theme }) => theme.devices.large} {
-      width: 80%;
+      width: 70%;
       margin-right: 3rem;
     }
   }

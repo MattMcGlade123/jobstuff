@@ -20,7 +20,7 @@ const FavDropdownStructure: FC<FavListProps> = ({
   return (
     <StyledWrapper data-testid="favDropdown">
       <StyleIconWrapper>
-        <FontAwesomeIcon icon={faHeart} onClick={() => handleClick()} />
+        <FontAwesomeIcon data-testid="favDropdownButton" icon={faHeart} onClick={() => handleClick()} />
         {favList && favList.length > 0 && (<StyledCount>{favList.length}</StyledCount>)}
       </StyleIconWrapper>
       <StyledWrapperInner $isActive={isActive}>

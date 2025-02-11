@@ -34,7 +34,7 @@ const RecipePageStructure: FC<RecipePageStructureProps> = ({ thisRecipe }) => {
             </div>
           </StyledInner>
           <StyledInner>
-            <StyleIngWrapper>
+            <StyleIngWrapper data-testid="recipe-ingredients">
               <h3>Ingredients</h3>
               <StyleIngList>
                 {thisRecipe.ingredients.map((thisIngredient) => (

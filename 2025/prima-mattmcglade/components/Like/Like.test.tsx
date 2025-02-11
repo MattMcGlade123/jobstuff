@@ -15,7 +15,7 @@ describe('LikeStructure', () => {
   test('LikeStructure on click should trigger update', async () => {
     const { getByTestId } = render(<LikeStructure {...props} />);
 
-    const like = getByTestId('like');
+    const like = getByTestId('likeButton');
     fireEvent.click(like);
 
     expect(handleClick).toHaveBeenCalled();

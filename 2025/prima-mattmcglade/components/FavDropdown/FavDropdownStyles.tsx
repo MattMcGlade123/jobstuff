@@ -44,6 +44,9 @@ export const StyleList = styled.ul`
 
 export const StyleIconWrapper = styled.div`
   position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem;
 
   > svg {
     width: 3rem;
@@ -54,7 +57,8 @@ export const StyleIconWrapper = styled.div`
 
 export const StyledCount = styled.span`
   position: absolute;
-  left: 0;
+  right: 1.3rem;
+  top: 1rem;
 
   @media ${({ theme }) => theme.devices.large} {
     top: 50%;

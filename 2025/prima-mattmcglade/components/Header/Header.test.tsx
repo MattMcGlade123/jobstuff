@@ -9,9 +9,7 @@ describe('HeaderStructure', () => {
 
     const header = getByTestId('header');
     const title = getByText('Recipe Lookup');
-    const favList = getByTestId('favDropdown');
     expect(header).toBeInTheDocument();
     expect(title).toBeInTheDocument();
-    expect(favList).toBeInTheDocument();
   });
 });

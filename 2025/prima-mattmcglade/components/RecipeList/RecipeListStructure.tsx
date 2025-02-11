@@ -16,8 +16,8 @@ interface RecipeListStructureProps {
 
 const RecipeListStructure: FC<RecipeListStructureProps> = ({ currentList, showNoResults }) => {
   return (
-    <StyledWrapper data-testid="RecipeList">
-      {currentList && currentList.map((thisListItem) => (
+    <StyledWrapper data-testid="recipeList">
+      {currentList && currentList?.map((thisListItem) => (
         <div key={thisListItem.id}>
           <StyledTitle>{thisListItem.name} <Like thisId={thisListItem.id} /></StyledTitle>
 

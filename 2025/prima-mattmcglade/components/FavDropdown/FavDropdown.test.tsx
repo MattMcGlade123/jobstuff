@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { fireEvent, render } from '../../utils/test-utils';
+import { cleanup, fireEvent, render } from '../../utils/test-utils';
 import FavDropdown from './FavDropdownStructure';
 import { mockFavList } from '@/mock-data/mock-favlist';
 
@@ -8,10 +8,21 @@ const handleClick = jest.fn();
 
 const props = {
   favList: mockFavList,
-  handleClick
+  handleClick,
+  isActive: false
+}
+
+const emptyProps = {
+  favList: [],
+  handleClick,
+  isActive: false
 }
 
 describe('FavDropdown', () => {
+  afterEach(() => {
+    cleanup();
+  });
+
   test('Should render basic component', async () => {
     const { getByTestId } = render(<FavDropdown {...props} />);
 
@@ -20,7 +31,7 @@ describe('FavDropdown', () => {
   });
 
   test('Should show no list if no data past', async () => {
-    const { getByText } = render(<FavDropdown favList={[]} />);
+    const { getByText } = render(<FavDropdown {...emptyProps} />);
 
     const noListMessage = getByText('You have no favourites saved');
     expect(noListMessage).toBeInTheDocument();
@@ -36,7 +47,7 @@ describe('FavDropdown', () => {
   test('Should trigger handleClick when clicked', async () => {
     const { getByTestId } = render(<FavDropdown {...props} />);
 
-    const trigger = getByTestId('favIcon')
+    const trigger = getByTestId('favDropdownButton')
 
     fireEvent.click(trigger);
 
