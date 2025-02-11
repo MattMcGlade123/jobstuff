@@ -22,7 +22,6 @@ const DataPush: FC<DataPushInterface> = ({
   const siteData = useSelector(selectSiteData)
 
   if (allData && siteData === null) {
-    console.log('allData', allData)
     dispatch(updateSiteData(allData));
   }
 

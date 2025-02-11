@@ -1,11 +1,14 @@
 import React from 'react';
 
-import { render } from '../../utils/test-utils';
+import { fireEvent, render } from '../../utils/test-utils';
 import FavDropdown from './FavDropdownStructure';
 import { mockFavList } from '@/mock-data/mock-favlist';
 
+const handleClick = jest.fn();
+
 const props = {
-  favList: mockFavList
+  favList: mockFavList,
+  handleClick
 }
 
 describe('FavDropdown', () => {
@@ -28,5 +31,15 @@ describe('FavDropdown', () => {
 
     const favList = getByTestId('favList');
     expect(favList).toBeInTheDocument();
+  });
+
+  test('Should trigger handleClick when clicked', async () => {
+    const { getByTestId } = render(<FavDropdown {...props} />);
+
+    const trigger = getByTestId('favIcon')
+
+    fireEvent.click(trigger);
+
+    expect(handleClick).toHaveBeenCalled();
   });
 });

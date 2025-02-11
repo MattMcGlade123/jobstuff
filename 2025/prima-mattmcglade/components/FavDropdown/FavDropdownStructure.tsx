@@ -8,16 +8,22 @@ import { StyledWrapper, StyledWrapperInner, StyleList, StyledCount, StyleIconWra
 
 interface FavListProps {
   favList: Recipe[] | undefined;
+  handleClick: () => void,
+  isActive: boolean
 }
 
-const FavDropdownStructure: FC<FavListProps> = ({ favList }) => {
+const FavDropdownStructure: FC<FavListProps> = ({
+  favList,
+  handleClick,
+  isActive
+}) => {
   return (
     <StyledWrapper data-testid="favDropdown">
       <StyleIconWrapper>
-        <FontAwesomeIcon icon={faHeart} />
+        <FontAwesomeIcon icon={faHeart} onClick={() => handleClick()} />
         {favList && favList.length > 0 && (<StyledCount>{favList.length}</StyledCount>)}
       </StyleIconWrapper>
-      <StyledWrapperInner>
+      <StyledWrapperInner $isActive={isActive}>
         {favList?.length === 0 && <p>You have no favourites saved</p>}
         <StyleList data-testid="favList">
           {favList?.map((thisFav) => (

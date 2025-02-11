@@ -2,24 +2,32 @@ import styled from 'styled-components';
 
 export const StyledWrapper = styled.div`
   display: flex;
-  position: relative;
+  flex-direction: column;
+  justify-content: flex-end;
 
-  &:hover {
-    > div {
-      display: flex;
+  @media ${({ theme }) => theme.devices.large} {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    &:hover {
+      > div {
+        display: flex;
+      }
     }
   }
 `;
 
-export const StyledWrapperInner = styled.div`
+export const StyledWrapperInner = styled.div<{ $isActive: boolean }>`
   display: none;
-  right: 0;
-  top: 3rem;
   padding: 1.5rem 2rem;
-  position: absolute;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0.4rem 0.3rem 0px;
+  display: ${({ $isActive }) => ($isActive ? 'block' : 'none')};
+  min-width: 20rem;
 
-  @media ${({ theme }) => theme?.devices?.large} {
+  @media ${({ theme }) => theme.devices.large} {
+    position: absolute;
+    right: 0;
+    top: 3rem;
     min-width: 20rem;
   }
 `;
@@ -46,7 +54,11 @@ export const StyleIconWrapper = styled.div`
 
 export const StyledCount = styled.span`
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  left: 0;
+
+  @media ${({ theme }) => theme.devices.large} {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 `;

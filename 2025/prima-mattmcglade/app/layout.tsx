@@ -9,6 +9,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 import DataPush from './DataPush';
 import { mockImages } from '@/mock-data/mock-images';
 import { Recipe } from '@/custom-type';
+import FavDropdown from '@/components/FavDropdown';
 config.autoAddCss = false
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
@@ -52,12 +53,15 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       <body>
         <StoreProvider>
           <StyledComponentsRegistry>
-            <Header />
-            <main>
-              <DataPush {...dataInfo}>
-                <ClientLayout>{children}</ClientLayout>
-              </DataPush>
-            </main>
+            <ClientLayout>
+              <FavDropdown />
+              <Header />
+              <main>
+                <DataPush {...dataInfo}>
+                  {children}
+                </DataPush>
+              </main>
+            </ClientLayout>
           </StyledComponentsRegistry>
         </StoreProvider>
       </body>
