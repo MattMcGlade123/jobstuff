@@ -7,8 +7,8 @@ export function generateMetadata(): Metadata {
   };
 }
 
-export default async function Page(props: { params: { recipeId: string } }) {
-  const { recipeId } = await props.params
+export default async function Page(props: any) {
+  const { recipeId } = await props?.params
   const idAsNumber = Number(recipeId)
 
   return <RecipePageLogic recipeId={idAsNumber} />;
