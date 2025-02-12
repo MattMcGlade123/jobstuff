@@ -18,6 +18,7 @@ export const StyledInner = styled.div`
 
     @media ${({ theme }) => theme.devices.large} {
       width: 70%;
+      height: auto;
       margin-right: 3rem;
     }
   }

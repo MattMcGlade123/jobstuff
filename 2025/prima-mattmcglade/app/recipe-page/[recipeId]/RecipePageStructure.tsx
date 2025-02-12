@@ -21,7 +21,7 @@ const RecipePageStructure: FC<RecipePageStructureProps> = ({ thisRecipe }) => {
         <>
           <h2 data-testid="recipe-name">{thisRecipe.name} <Like thisId={thisRecipe.id} /></h2>
           <StyledInner>
-            <Image data-testid="recipe-image" src={thisRecipe.image} alt={thisRecipe.name} width={500} height={400} />
+            <Image data-testid="recipe-image" priority src={thisRecipe.image} alt={thisRecipe.name} width={500} height={400} />
             <div>
               <StyledSubTitle>Difficulty</StyledSubTitle>
               <p>{thisRecipe.difficulty}</p>
