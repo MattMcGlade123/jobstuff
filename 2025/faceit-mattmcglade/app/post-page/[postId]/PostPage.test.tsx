@@ -21,8 +21,12 @@ const mockPost: Post = {
   userId: 121,
   author: {
     name: 'Bob Smith',
-    avatar: 'url'
+    avatar: 'https://www.url.com'
   }
+}
+
+const mockProps = {
+  thisPost: mockPost,
 }
 
 describe('PostPageStructure', () => {
@@ -31,7 +35,7 @@ describe('PostPageStructure', () => {
   });
 
   test('PostPageStructure to render all components', async () => {
-    const { getByTestId } = render(<PostPageStructure thisPost={mockPost} />);
+    const { getByTestId } = render(<PostPageStructure {...mockProps} />);
 
     const container = getByTestId('post-container');
     const author = getByTestId('post-author');
@@ -49,7 +53,7 @@ describe('PostPageStructure', () => {
   test('PostPageStructure to render error if theres no Post', async () => {
     const { getByText } = render(<PostPageStructure thisPost={undefined} />);
 
-    const errorMessage = getByText('Sorry, theres not Post for this ID');
+    const errorMessage = getByText('Sorry, theres not post for this ID');
 
     expect(errorMessage).toBeInTheDocument();
   });

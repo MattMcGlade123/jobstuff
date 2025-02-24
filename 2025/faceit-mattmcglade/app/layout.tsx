@@ -9,7 +9,6 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 import DataPush from './DataPush';
 import { authors } from '@/mock-data/mock-auths';
 import { Post } from '@/custom-type';
-import FavDropdown from '@/components/FavDropdown';
 config.autoAddCss = false
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
@@ -27,8 +26,10 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
       const getRandomAuthor = () => authors[Math.floor(Math.random() * authors.length)];
 
+
       const updatedPosts = data.posts.map((post: Post) => ({
         ...post,
+        thisPostCappedText: post?.body?.length > 100 ? post.body.slice(0, 100) + "..." : post?.body,
         author: getRandomAuthor()
       }));
 
@@ -54,7 +55,6 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         <StoreProvider>
           <StyledComponentsRegistry>
             <ClientLayout>
-              <FavDropdown />
               <Header />
               <main>
                 <DataPush {...dataInfo}>

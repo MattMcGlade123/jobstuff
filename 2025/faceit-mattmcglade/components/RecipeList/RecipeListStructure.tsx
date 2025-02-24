@@ -1,8 +1,7 @@
-import { Recipe } from '@/custom-type';
+import { Post } from '@/custom-type';
 import React, { FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Like from '../Like';
 
 import {
   StyledWrapper,
@@ -10,7 +9,7 @@ import {
 } from './RecipeListStyles';
 
 interface RecipeListStructureProps {
-  currentList: Recipe[] | null;
+  currentList: Post[] | null;
   showNoResults: boolean;
 }
 
@@ -19,7 +18,7 @@ const RecipeListStructure: FC<RecipeListStructureProps> = ({ currentList, showNo
     <StyledWrapper data-testid="recipeList">
       {currentList && currentList?.map((thisListItem) => (
         <div key={thisListItem.id}>
-          <StyledTitle>{thisListItem.name} <Like thisId={thisListItem.id} /></StyledTitle>
+          <StyledTitle>{thisListItem.name}</StyledTitle>
 
           <Link href={`recipe-page/${thisListItem.id}`} key={thisListItem.id}>
             <Image src={thisListItem.image} alt={thisListItem.name} width={200} height={200} />

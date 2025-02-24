@@ -1,7 +1,7 @@
 'use client'
 
 import React, { FC } from 'react';
-import { faUtensils } from '@fortawesome/free-solid-svg-icons';
+import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import {
@@ -12,7 +12,7 @@ import Link from 'next/link';
 const HeaderStructure: FC = () => {
   return (
     <StyledHeader data-testid="header">
-      <Link href={'/'}><h1>Recipe Lookup <FontAwesomeIcon icon={faUtensils} /></h1></Link>
+      <Link href={'/'}><h1>All News Central <FontAwesomeIcon icon={faNewspaper} /></h1></Link>
     </StyledHeader>
   );
 };

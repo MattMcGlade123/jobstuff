@@ -1,32 +1,31 @@
 'use client';
 
-import { StyleContainer, StyledInner, StyledSubTitle, StyleIngList, StyleIngWrapper } from './PostPageStyles';
+import { StyleAuthor, StyleContainer } from './PostPageStyles';
 import { FC } from 'react';
 import Image from 'next/image';
 import { Post } from '@/custom-type';
 
 interface PostPageStructureProps {
-  thisPost: Post | undefined,
-  thisPostCappedText: string;
+  thisPost: Post | undefined
 }
 
-const PostPageStructure: FC<PostPageStructureProps> = ({ thisPost, thisPostCappedText }) => {
+const PostPageStructure: FC<PostPageStructureProps> = ({ thisPost }) => {
   return (
-    <StyleContainer data-testid="recipe-container">
+    <StyleContainer data-testid="post-container">
       {thisPost === undefined && (
-        <p>Sorry, theres not recipe for this ID</p>
+        <p>Sorry, theres not post for this ID</p>
       )}
 
       {thisPost && (
         <>
-          <StyleAuthor>
-            <Image data-testid="recipe-image" priority src={thisPost.author.avatar} alt={thisPost.author.name} width={500} height={400} />
-            <p>{thisPost.author.name}</p>
+          <StyleAuthor data-testid="post-author">
+            <Image data-testid="post-author-image" priority src={thisPost.author.avatar} alt={thisPost.author.name} width={500} height={400} />
+            <p data-testid="post-author-name">{thisPost.author.name}</p>
           </StyleAuthor>
-          <StyledContent>
+          <div data-testid="post-content">
             <h2>{thisPost.title}</h2>
-            <p>{thisPostCappedText}</p>
-          </StyledContent>
+            <p>{thisPost.body}</p>
+          </div>
         </>
       )}
 
