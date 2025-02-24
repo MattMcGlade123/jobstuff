@@ -7,8 +7,8 @@ import Header from '@/components/Header';
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import DataPush from './DataPush';
-import { mockImages } from '@/mock-data/mock-images';
-import { Recipe } from '@/custom-type';
+import { authors } from '@/mock-data/mock-auths';
+import { Post } from '@/custom-type';
 import FavDropdown from '@/components/FavDropdown';
 config.autoAddCss = false
 
@@ -19,20 +19,20 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     let dataResponse;
 
     try {
-      const response = await fetch("https://dummyjson.com/recipes");
+      const response = await fetch("https://dummyjson.com/posts");
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const data = await response.json();
 
+      const getRandomAuthor = () => authors[Math.floor(Math.random() * authors.length)];
 
-      const updatedRecipes = data.recipes.map((recipe: Recipe, index: number) => ({
-        ...recipe,
-        // image: imageUrls[index],
-        image: mockImages[index].url
+      const updatedPosts = data.posts.map((post: Post) => ({
+        ...post,
+        author: getRandomAuthor()
       }));
 
-      dataResponse = updatedRecipes;
+      dataResponse = updatedPosts;
       // Errors need to be set to any
     } catch (err: any) {
       error = err?.message || err;

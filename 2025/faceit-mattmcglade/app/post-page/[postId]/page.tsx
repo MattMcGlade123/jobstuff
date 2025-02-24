@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import RecipePageLogic from './RecipePageLogic';
+import RecipePageLogic from './PostPageLogic';
 
 export function generateMetadata(): Metadata {
   return {
@@ -8,8 +8,8 @@ export function generateMetadata(): Metadata {
 }
 
 export default async function Page(props: any) {
-  const { recipeId } = await props?.params
-  const idAsNumber = Number(recipeId)
+  const { postId } = await props?.params
+  const idAsNumber = Number(postId)
 
-  return <RecipePageLogic recipeId={idAsNumber} />;
+  return <RecipePageLogic postId={idAsNumber} />;
 }

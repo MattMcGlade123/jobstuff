@@ -1,29 +1,23 @@
-export interface FavouriteState {
-  favList: number[]
-}
-
 export interface SiteDataState {
-  siteData: Recipe[] | null,
-  listData: Recipe[] | null,
+  siteData: Post[] | null,
+  listData: Post[] | null,
   noResults: boolean;
   error: any
 }
 
-export interface Recipe {
+export interface Post {
   id: number;
-  name: string;
-  ingredients: string[];
-  instructions: string[];
-  image: string;
-  prepTimeMinutes: number;
-  cookTimeMinutes: number;
-  servings: number;
-  difficulty: string;
-  cuisine: string;
-  caloriesPerServing: number;
+  title: string;
+  body: string;
   tags: string[];
-  userId: number;
-  rating: number;
-  reviewCount: number;
-  mealType: string[]
+  reactions: {
+    likes: number,
+    dislikes: number
+  },
+  views: number,
+  userId: number
+  author: {
+    name: string,
+    avatar: string
+  }
 }
