@@ -20,7 +20,7 @@ export const StyledWrapper = styled.div`
       padding: 1rem;
       margin: 0;
       box-sizing: border-box;
-      flex-basis: calc(25% - 2rem);
+      flex-basis: calc(50% - 2rem);
     }
   }
 
@@ -29,13 +29,6 @@ export const StyledWrapper = styled.div`
     flex-wrap: wrap;
     align-items: stretch;
     gap: 2rem;
-
-    > div {
-      border: 1px solid ${({ theme }) => theme.colors.grey};
-      padding: 1rem;
-      box-sizing: border-box;
-      flex-basis: calc(25% - 2rem);
-    }
   }
 `;
 

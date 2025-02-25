@@ -1,25 +1,34 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import PostListStructure from './PostListStructure';
 import { useSelector } from 'react-redux';
-import { selectNoResults, selectSiteData } from '@/features/siteData';
+import { selectSiteData } from '@/features/siteData';
+import { Post } from '@/custom-type';
+import { fetchData } from '@/utils/fetchData';
 
 const PostListLogic = () => {
   const siteData = useSelector(selectSiteData);
-  const noResult = useSelector(selectNoResults);
-  const [showNoResults, setShowNoResults] = useState<boolean>(false);
+  const [currentList, setCurrentList] = useState<Post[] | null>(siteData);
+  const [currentPage, setCurrentPage] = useState<number>(2);
 
-  const [currentList, setCurrentList] = useState(siteData)
+  const fetchMoreData = async () => {
+    const moreData = await fetchData(currentPage)
+    setCurrentPage(currentPage + 1);
 
-  useEffect(() => {
-    setShowNoResults(noResult);
-  }, [noResult])
+    if (currentList) {
+      const newListData = [
+        ...currentList,
+        ...moreData.dataResponse
+      ]
+      setCurrentList(newListData)
+    }
+  }
 
   const componentProps = {
     currentList,
-    showNoResults
+    fetchMoreData
   }
 
   return <PostListStructure {...componentProps} />;

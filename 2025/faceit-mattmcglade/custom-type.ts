@@ -1,6 +1,5 @@
 export interface SiteDataState {
   siteData: Post[] | null,
-  noResults: boolean;
   error: any
 }
 
