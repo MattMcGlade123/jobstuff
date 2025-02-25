@@ -1,6 +1,5 @@
 export interface SiteDataState {
   siteData: Post[] | null,
-  listData: Post[] | null,
   noResults: boolean;
   error: any
 }
@@ -14,8 +13,9 @@ export interface Post {
     likes: number,
     dislikes: number
   },
-  views: number,
-  userId: number
+  views: number;
+  userId: number;
+  thisPostCappedText?: string;
   author: {
     name: string,
     avatar: string

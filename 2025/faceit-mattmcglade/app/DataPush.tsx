@@ -1,6 +1,6 @@
 'use client';
 
-import { Recipe } from '@/custom-type';
+import { Post } from '@/custom-type';
 import { selectSiteData, updateError, updateSiteData } from '@/features/siteData';
 import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 interface DataPushInterface {
   children: React.ReactNode;
-  allData: Recipe[] | null;
+  allData: Post[] | null;
   error: string | null;
 }
 

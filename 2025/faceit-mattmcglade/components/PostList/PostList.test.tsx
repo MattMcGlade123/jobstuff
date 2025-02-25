@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { render } from '../../utils/test-utils';
-import RecipeList from './RecipeListStructure';
+import RecipeList from './PostListStructure';
 import { mockFavList } from '@/mock-data/mock-favlist';
 
 const props = {

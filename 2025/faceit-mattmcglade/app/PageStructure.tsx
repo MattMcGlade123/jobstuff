@@ -2,13 +2,13 @@
 
 import { StyleContainer } from './HomeStyles';
 import { FC } from 'react';
-import RecipeList from '@/components/RecipeList';
+import PostList from '@/components/PostList';
 
 
 const PageStructure: FC = () => {
   return (
     <StyleContainer>
-      <RecipeList />
+      <PostList />
     </StyleContainer>
   );
 }

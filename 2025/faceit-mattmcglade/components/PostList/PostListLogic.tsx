@@ -2,26 +2,27 @@
 
 import React, { useEffect, useState } from 'react';
 
-import RecipeListStructure from './RecipeListStructure';
+import PostListStructure from './PostListStructure';
 import { useSelector } from 'react-redux';
-import { selectListData, selectNoResults } from '@/features/siteData';
+import { selectNoResults, selectSiteData } from '@/features/siteData';
 
-const RecipeListLogic = () => {
-  const currentList = useSelector(selectListData);
+const PostListLogic = () => {
+  const siteData = useSelector(selectSiteData);
   const noResult = useSelector(selectNoResults);
   const [showNoResults, setShowNoResults] = useState<boolean>(false);
+
+  const [currentList, setCurrentList] = useState(siteData)
 
   useEffect(() => {
     setShowNoResults(noResult);
   }, [noResult])
-
 
   const componentProps = {
     currentList,
     showNoResults
   }
 
-  return <RecipeListStructure {...componentProps} />;
+  return <PostListStructure {...componentProps} />;
 };
 
-export default RecipeListLogic;
+export default PostListLogic;
