@@ -6,7 +6,7 @@ global.fetch = jest.fn();
 describe('fetchData', () => {
   beforeEach(() => {
     // This is optional, I added it to stop the error showing when running tests but sometimes you 
-    // might want to see that erro
+    // might want to see that error
     jest.spyOn(console, 'error').mockImplementation(() => {});
     jest.clearAllMocks();
   });
