@@ -17,15 +17,16 @@ interface PostListStructureProps {
 
 const PostListStructure: FC<PostListStructureProps> = ({ currentList, fetchMoreData }) => {
   return (
-    <StyledWrapper data-testid="PostList">
+    <>
       {currentList && (
         <InfiniteScroll
           dataLength={currentList.length}
           next={fetchMoreData}
           hasMore={true}
-          scrollThreshold={0.5}
+          scrollThreshold={0.9}
           loader={<h4>Loading...</h4>}
         >
+          <StyledWrapper data-testid="PostList">
           {currentList?.map((thisListItem) => (
             <div key={thisListItem.id}>
               <Link href={`post-page/${thisListItem.id}`} key={thisListItem.id}>
@@ -38,9 +39,10 @@ const PostListStructure: FC<PostListStructureProps> = ({ currentList, fetchMoreD
               </Link>
             </div>
           ))}
+          </StyledWrapper>
         </InfiniteScroll>
       )}
-    </StyledWrapper>
+    </>
   );
 };
 

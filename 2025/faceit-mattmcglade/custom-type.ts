@@ -1,5 +1,6 @@
 export interface SiteDataState {
-  siteData: Post[] | null,
+  siteData: Post[] | null;
+  pageNumber: number;
   error: any
 }
 

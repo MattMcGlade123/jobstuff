@@ -3,26 +3,29 @@
 import React, { useState } from 'react';
 
 import PostListStructure from './PostListStructure';
-import { useSelector } from 'react-redux';
-import { selectSiteData } from '@/features/siteData';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectPageNumber, selectSiteData, updateCurrentPageNumber, updateSiteData } from '@/features/siteData';
 import { Post } from '@/custom-type';
 import { fetchData } from '@/utils/fetchData';
 
 const PostListLogic = () => {
   const siteData = useSelector(selectSiteData);
+  const currentPageNumber = useSelector(selectPageNumber);
+  const dispatch = useDispatch();
   const [currentList, setCurrentList] = useState<Post[] | null>(siteData);
-  const [currentPage, setCurrentPage] = useState<number>(2);
 
   const fetchMoreData = async () => {
-    const moreData = await fetchData(currentPage)
-    setCurrentPage(currentPage + 1);
+    const moreData = await fetchData(currentPageNumber);
+    const newNumber = currentPageNumber + 1
 
     if (currentList) {
       const newListData = [
         ...currentList,
         ...moreData.dataResponse
       ]
-      setCurrentList(newListData)
+      dispatch(updateSiteData(newListData))
+      dispatch(updateCurrentPageNumber(newNumber))
+      setCurrentList(newListData);
     }
   }
 

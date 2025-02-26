@@ -16,7 +16,6 @@ export const fetchData = async (pageNumber = 1) => {
 
     const getRandomAuthor = () => authors[Math.floor(Math.random() * authors.length)];
 
-
     const updatedPosts = data.posts.map((post: Post) => ({
       ...post,
       thisPostCappedText: post?.body?.length > 100 ? post.body.slice(0, 100) + "..." : post?.body,
