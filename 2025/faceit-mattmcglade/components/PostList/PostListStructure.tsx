@@ -26,9 +26,9 @@ const PostListStructure: FC<PostListStructureProps> = ({ currentList, fetchMoreD
           scrollThreshold={0.9}
           loader={<h4>Loading...</h4>}
         >
-          <StyledWrapper data-testid="PostList">
+          <StyledWrapper data-testid="postList">
             {currentList?.map((thisListItem) => (
-              <div key={thisListItem.id}>
+              <div key={thisListItem.id} data-testid="postListItem">
                 <Link href={`post-page/${thisListItem.id}`} key={thisListItem.id}>
                   <StyleAuthor>
                     <Image src={thisListItem.author.avatar} alt={thisListItem.author.name} width={200} height={200} />

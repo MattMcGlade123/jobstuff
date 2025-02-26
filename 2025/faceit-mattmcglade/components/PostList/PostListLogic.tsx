@@ -6,7 +6,7 @@ import PostListStructure from './PostListStructure';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectPageNumber, selectSiteData, updateCurrentPageNumber, updateSiteData } from '@/features/siteData';
 import { Post } from '@/custom-type';
-import { fetchData } from '@/utils/fetchData';
+import { fetchData } from '@/utils/fetchData/fetchData';
 
 const PostListLogic = () => {
   const siteData = useSelector(selectSiteData);

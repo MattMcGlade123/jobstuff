@@ -12,6 +12,7 @@ interface PostPageStructureProps {
 const PostPageStructure: FC<PostPageStructureProps> = ({ thisPost }) => {
   return (
     <StyleContainer data-testid="post-container">
+      {/* Handle if there's no post data */}
       {thisPost === undefined && (
         <p>Sorry, theres not post for this ID</p>
       )}

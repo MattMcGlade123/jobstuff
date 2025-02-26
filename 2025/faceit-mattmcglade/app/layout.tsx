@@ -7,12 +7,10 @@ import Header from '@/components/Header';
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import DataPush from './DataPush';
-import { fetchData } from '@/utils/fetchData';
+import { fetchData } from '@/utils/fetchData/fetchData';
 config.autoAddCss = false
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
-
-
   const fetchResponse = await fetchData();
 
   const dataInfo = {

@@ -36,7 +36,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       // Errors need to be set to any
     } catch (err: any) {
       error = err?.message || err;
-      console.error("Error fetching recipes:", err);
+      console.error("Error fetching data:", err);
     }
     return dataResponse;
   };
