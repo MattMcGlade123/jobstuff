@@ -27,20 +27,25 @@ const PostListStructure: FC<PostListStructureProps> = ({ currentList, fetchMoreD
           loader={<h4>Loading...</h4>}
         >
           <StyledWrapper data-testid="PostList">
-          {currentList?.map((thisListItem) => (
-            <div key={thisListItem.id}>
-              <Link href={`post-page/${thisListItem.id}`} key={thisListItem.id}>
-                <StyleAuthor>
-                  <Image src={thisListItem.author.avatar} alt={thisListItem.author.name} width={200} height={200} />
-                  <p>{thisListItem.author.name}</p>
-                </StyleAuthor>
-                <StyledTitle>{thisListItem.title}</StyledTitle>
-                {thisListItem.thisPostCappedText && <p>{thisListItem.thisPostCappedText}</p>}
-              </Link>
-            </div>
-          ))}
+            {currentList?.map((thisListItem) => (
+              <div key={thisListItem.id}>
+                <Link href={`post-page/${thisListItem.id}`} key={thisListItem.id}>
+                  <StyleAuthor>
+                    <Image src={thisListItem.author.avatar} alt={thisListItem.author.name} width={200} height={200} />
+                    <p>{thisListItem.author.name}</p>
+                  </StyleAuthor>
+                  <StyledTitle>{thisListItem.title}</StyledTitle>
+                  {thisListItem.thisPostCappedText && <p>{thisListItem.thisPostCappedText}</p>}
+                </Link>
+              </div>
+            ))}
           </StyledWrapper>
         </InfiniteScroll>
+      )}
+      {currentList?.length === 0 && (
+        <StyledWrapper data-testid="PostListError">
+          <p>Sorry no data is available currently, try again later</p>
+        </StyledWrapper>
       )}
     </>
   );

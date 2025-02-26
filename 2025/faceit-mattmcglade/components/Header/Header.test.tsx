@@ -8,7 +8,7 @@ describe('HeaderStructure', () => {
     const { getByTestId, getByText } = render(<HeaderStructure />);
 
     const header = getByTestId('header');
-    const title = getByText('Recipe Lookup');
+    const title = getByText('All News Central');
     expect(header).toBeInTheDocument();
     expect(title).toBeInTheDocument();
   });

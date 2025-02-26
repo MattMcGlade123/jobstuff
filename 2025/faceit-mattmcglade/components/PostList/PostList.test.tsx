@@ -1,31 +1,33 @@
 import React from 'react';
 
 import { render } from '../../utils/test-utils';
-import RecipeList from './PostListStructure';
-import { mockFavList } from '@/mock-data/mock-favlist';
+import PostListStructure from './PostListStructure';
+import { mockListData } from '@/mock-data/mock-list';
+
+const fetchMoreData = jest.fn();
 
 const props = {
-  currentList: mockFavList,
-  showNoResults: false
+  currentList: mockListData,
+  fetchMoreData
 }
 
 const noResultsProps = {
   currentList: null,
-  showNoResults: true
+  fetchMoreData
 }
 
-describe('RecipeList', () => {
-  test('RecipeList to renders', async () => {
-    const { getByTestId } = render(<RecipeList {...props}  />);
+describe('PostList', () => {
+  test('PostList to renders', async () => {
+    const { getByTestId } = render(<PostListStructure {...props}  />);
 
-    const recipeList = getByTestId('recipeList');
-    expect(recipeList).toBeInTheDocument();
+    const PostList = getByTestId('PostList');
+    expect(PostList).toBeInTheDocument();
   });
 
   test('Shows no results', async () => {
-    const { getByText } = render(<RecipeList {...noResultsProps} />);
+    const { getByText } = render(<PostListStructure {...noResultsProps} />);
 
-    const noResultMessage = getByText('Sorry there were no results for that search');
+    const noResultMessage = getByText('Sorry no data is available currently, try again later');
     expect(noResultMessage).toBeInTheDocument();
   });
 });
