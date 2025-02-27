@@ -4,6 +4,23 @@ To begin, clone the project. Once cloned, you need to install all the dependenci
 
 `yarn`
 
+
+## Running
+
+To run just use
+
+`yarn dev`
+
+for developement mode.
+
+For production you need to do
+
+`yarn build`
+
+then
+
+`yarn start`
+
 ## Unit Testing
 
 I'm use [React Testing Library](https://testing-library.com/) to unit test the components.

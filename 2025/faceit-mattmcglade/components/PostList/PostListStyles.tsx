@@ -12,7 +12,12 @@ export const StyledWrapper = styled.div<{ $highlight?: boolean }>`
   }
 
   > div:first-child {
-    border: 1px solid ${({ theme, $highlight }) => $highlight ? theme.colors.red : theme.colors.grey};
+    background: ${({ theme, $highlight }) => $highlight ? theme.colors.red : 'none'};
+
+    @media ${({ theme }) => theme.devices.large} {
+      background: none;
+      border: 1px solid ${({ theme, $highlight }) => $highlight ? theme.colors.red : theme.colors.grey};
+    }
   }
 
   @media ${({ theme }) => theme.devices.large} {
