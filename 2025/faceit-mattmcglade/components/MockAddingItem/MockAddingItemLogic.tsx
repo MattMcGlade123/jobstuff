@@ -4,7 +4,7 @@ import React from 'react';
 
 import MockAddingItemStructure from './MockAddingItemStructure';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectSiteData, updateSiteData } from '@/features/siteData';
+import { selectSiteData, updateAddedNewPost, updateSiteData } from '@/features/siteData';
 
 const MockAddingItemLogic = () => {
   const currentData = useSelector(selectSiteData);
@@ -39,6 +39,11 @@ const MockAddingItemLogic = () => {
         ...currentData,
       ]
       dispatch(updateSiteData(newList))
+      dispatch(updateAddedNewPost(true));
+
+      setTimeout(() => {
+        dispatch(updateAddedNewPost(false));
+      }, 5000)
     }
   };
 

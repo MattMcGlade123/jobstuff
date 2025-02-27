@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledWrapper = styled.div`
+export const StyledWrapper = styled.div<{ $highlight?: boolean }>`
   display: flex;
   flex-direction: column;
 
@@ -11,17 +11,8 @@ export const StyledWrapper = styled.div`
     aspect-ratio: initial;
   }
 
-  > div {
-    border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
-    margin-bottom: 2rem;
-
-    @media ${({ theme }) => theme.devices.large} {
-      border: 1px solid ${({ theme }) => theme.colors.grey};
-      padding: 1rem;
-      margin: 0;
-      box-sizing: border-box;
-      flex-basis: calc(50% - 2rem);
-    }
+  > div:first-child {
+    border: 1px solid ${({ theme, $highlight }) => $highlight ? theme.colors.red : theme.colors.grey};
   }
 
   @media ${({ theme }) => theme.devices.large} {
@@ -29,6 +20,19 @@ export const StyledWrapper = styled.div`
     flex-wrap: wrap;
     align-items: stretch;
     gap: 2rem;
+  }
+`;
+
+export const StyledItem = styled.div`
+  border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
+  margin-bottom: 2rem;
+
+  @media ${({ theme }) => theme.devices.large} {
+    border: 1px solid ${({ theme }) => theme.colors.grey};
+    padding: 1rem;
+    margin: 0;
+    box-sizing: border-box;
+    flex-basis: calc(50% - 2rem);
   }
 `;
 

@@ -6,7 +6,7 @@ To begin, clone the project. Once cloned, you need to install all the dependenci
 
 ## Unit Testing
 
-We use [React Testing Library](https://testing-library.com/) to unit test our components.
+I'm use [React Testing Library](https://testing-library.com/) to unit test the components.
 
 To Run the test suite, use the command `yarn test` at the root. This will run test on all test in every package.
 
@@ -22,13 +22,18 @@ Redux Toolkit
 Jest
 React Testing Library
 Styled components
+React Infinite Scroll Component
 
 I've also used a number of linting packages to help maintain the code quality
 
 ## Approach
 
-Using Next14 I focused on splitting the code up into seperate reusable components. NextJS also uses server and client components so that allowed me to fetch data server side. I then took that data and updated the Redux object so that the data could be shared throughout the app.
+Using Next15 I focused on splitting the code up into seperate reusable components. NextJS also uses server and client components so that allowed me to fetch data server side. I then took that data and updated the Redux object so that the data could be shared throughout the app.
 
-With the searchbox, I used a callback and set the value to state. I then used a custom hook, useSearchData, to filter the data and then return no results or the filtered list. Or if the field is cleared, the list is also cleared.
+I like to split components up into logic and structure as if keeps these things seperate. I also like to add resuable code into its own file so it can be reused but also makes it easier to test.
 
-The fav list is triggered by the Like component which keeps the value in state (an improvement would also to add this to local storage)
+As the data returned from the API didn't have any authors, I added some with mock data. The API also doesn't split into pages so I used the 'skip' feature to allow me to calculate the current and next page.
+
+## Adding a New Post
+
+I added a component called 'MockAddingItem'. This sits in a fixed position and only is used to demostrate a new post being added which is why it remains unstyled. It adds the same data as I fetch making another API call was unnecessary for the demo

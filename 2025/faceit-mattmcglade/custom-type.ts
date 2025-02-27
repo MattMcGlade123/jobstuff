@@ -1,7 +1,8 @@
 export interface SiteDataState {
   siteData: Post[] | null;
   pageNumber: number;
-  error: any
+  error: any;
+  addedNewPost: boolean;
 }
 
 export interface Post {

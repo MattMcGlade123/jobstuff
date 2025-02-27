@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import PageStructure from './PageStructure';
 
 export const metadata: Metadata = {
-  title: 'Recipes Search App',
-  description: 'An app that helps you search for Recipes',
+  title: 'All News Central',
+  description: 'The only source for news',
 }
 
 export default async function Home() {

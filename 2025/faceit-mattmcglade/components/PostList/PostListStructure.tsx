@@ -7,7 +7,8 @@ import {
   StyledWrapper,
   StyledTitle,
   StyleAuthor,
-  StyledNewPost
+  StyledNewPost,
+  StyledItem
 } from './PostListStyles';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
@@ -33,9 +34,9 @@ const PostListStructure: FC<PostListStructureProps> = ({ currentList, fetchMoreD
           scrollThreshold={0.9}
           loader={<h4>Loading...</h4>}
         >
-          <StyledWrapper data-testid="postList">
+          <StyledWrapper data-testid="postList" $highlight={showNewPost}>
             {currentList?.map((thisListItem, index) => (
-              <div key={`${thisListItem.id}-${index}`} data-testid="postListItem">
+              <StyledItem key={`${thisListItem.id}-${index}`} data-testid="postListItem">
                 <Link href={`post-page/${thisListItem.id}`} key={thisListItem.id}>
                   <StyleAuthor>
                     <Image src={thisListItem.author.avatar} alt={thisListItem.author.name} width={200} height={200} />
@@ -44,7 +45,7 @@ const PostListStructure: FC<PostListStructureProps> = ({ currentList, fetchMoreD
                   <StyledTitle>{thisListItem.title}</StyledTitle>
                   {thisListItem.thisPostCappedText && <p>{thisListItem.thisPostCappedText}</p>}
                 </Link>
-              </div>
+              </StyledItem>
             ))}
           </StyledWrapper>
         </InfiniteScroll>

@@ -5,7 +5,6 @@ import { selectSiteData } from '@/features/siteData';
 import { useSelector } from 'react-redux';
 import PostPageStructure from './PostPageStructure';
 
-
 const PostPageLogic: FC<{ postId: number }> = ({ postId }) => {
   // Get all data
   const allListData = useSelector(selectSiteData);

@@ -4,16 +4,16 @@ import React, { useEffect, useState } from 'react';
 
 import PostListStructure from './PostListStructure';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectPageNumber, selectSiteData, updateCurrentPageNumber, updateSiteData } from '@/features/siteData';
+import { selectAddedNewPost, selectPageNumber, selectSiteData, updateCurrentPageNumber, updateSiteData } from '@/features/siteData';
 import { Post } from '@/custom-type';
 import { fetchData } from '@/utils/fetchData/fetchData';
 
 const PostListLogic = () => {
   const siteData = useSelector(selectSiteData);
   const currentPageNumber = useSelector(selectPageNumber);
+  const showNewPost = useSelector(selectAddedNewPost);
   const dispatch = useDispatch();
   const [currentList, setCurrentList] = useState<Post[] | null>(siteData);
-  const [showNewPost, setShowNewPost] = useState(false);
 
   const fetchMoreData = async () => {
     const moreData = await fetchData(currentPageNumber);
@@ -31,12 +31,7 @@ const PostListLogic = () => {
   }
 
   useEffect(() => {
-    setCurrentList(siteData);
-    setShowNewPost(true);
-
-    setTimeout(() => {
-      setShowNewPost(false)
-    }, 5000)
+    setCurrentList(siteData)
   }, [siteData])
 
   const componentProps = {
