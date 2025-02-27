@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 export const StyledWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: fixed;
+  top: 10vh;
+  left: 10vh;
 `;
+
 export const StyledButton = styled.button`
   display: flex;
   justify-content: center;

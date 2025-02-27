@@ -8,6 +8,7 @@ import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import DataPush from './DataPush';
 import { fetchData } from '@/utils/fetchData/fetchData';
+import MockAddingItem from '@/components/MockAddingItem';
 config.autoAddCss = false
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
@@ -25,6 +26,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           <StyledComponentsRegistry>
             <ClientLayout>
               <Header />
+              <MockAddingItem />
               <main>
                 <DataPush {...dataInfo}>
                   {children}

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import PostListStructure from './PostListStructure';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,6 +13,7 @@ const PostListLogic = () => {
   const currentPageNumber = useSelector(selectPageNumber);
   const dispatch = useDispatch();
   const [currentList, setCurrentList] = useState<Post[] | null>(siteData);
+  const [showNewPost, setShowNewPost] = useState(false);
 
   const fetchMoreData = async () => {
     const moreData = await fetchData(currentPageNumber);
@@ -29,9 +30,19 @@ const PostListLogic = () => {
     }
   }
 
+  useEffect(() => {
+    setCurrentList(siteData);
+    setShowNewPost(true);
+
+    setTimeout(() => {
+      setShowNewPost(false)
+    }, 5000)
+  }, [siteData])
+
   const componentProps = {
     currentList,
-    fetchMoreData
+    fetchMoreData,
+    showNewPost
   }
 
   return <PostListStructure {...componentProps} />;

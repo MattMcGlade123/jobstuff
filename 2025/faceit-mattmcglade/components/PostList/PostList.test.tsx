@@ -12,13 +12,22 @@ jest.mock('next/link', () => {
 
 const props = {
   currentList: mockListData,
-  fetchMoreData
+  fetchMoreData,
+  showNewPost: false
 }
 
 const noResultsProps = {
   currentList: [],
-  fetchMoreData
+  fetchMoreData,
+  showNewPost: false
 }
+
+const newPostprops = {
+  currentList: mockListData,
+  fetchMoreData,
+  showNewPost: true
+}
+
 
 describe('PostList', () => {
   test('PostList to renders', async () => {
@@ -55,5 +64,12 @@ describe('PostList', () => {
 
     const noResultMessage = getByText('Sorry no data is available currently, try again later');
     expect(noResultMessage).toBeInTheDocument();
+  });
+
+  test('Shows a new post message', async () => {
+    const { getByText } = render(<PostListStructure {...newPostprops} />);
+
+    const newPostMessage = getByText('New post has been added');
+    expect(newPostMessage).toBeInTheDocument();
   });
 });

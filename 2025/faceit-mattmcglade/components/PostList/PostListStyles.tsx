@@ -35,7 +35,6 @@ export const StyledWrapper = styled.div`
 export const StyledTitle = styled.p`
   font-size: 2rem;
   display: flex;
-
 `;
 
 export const StyleAuthor = styled.div`
@@ -49,4 +48,15 @@ export const StyleAuthor = styled.div`
       margin-right: 1rem;
     }
   }
+`;
+
+export const StyledNewPost = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  background: ${({ theme }) => theme.colors.grey};
+  padding: 1rem;
+  color: #fff;
 `;
