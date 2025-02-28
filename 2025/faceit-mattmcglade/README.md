@@ -47,10 +47,14 @@ I've also used a number of linting packages to help maintain the code quality
 
 Using Next15 I focused on splitting the code up into seperate reusable components. NextJS also uses server and client components so that allowed me to fetch data server side. I then took that data and updated the Redux object so that the data could be shared throughout the app.
 
-I like to split components up into logic and structure as if keeps these things seperate. I also like to add resuable code into its own file so it can be reused but also makes it easier to test.
+I like to split components up into logic and structure as it keeps these things seperate. This allows the logic to be shared if we have multiple layouts that behave the same.
 
 As the data returned from the API didn't have any authors, I added some with mock data. The API also doesn't split into pages so I used the 'skip' feature to allow me to calculate the current and next page.
 
 ## Adding a New Post
 
 I added a component called 'MockAddingItem'. This sits in a fixed position and only is used to demostrate a new post being added which is why it remains unstyled. It adds the same data as I fetch making another API call was unnecessary for the demo
+
+## Notes
+
+I noticed a issue CLS on mobile. The reason behind this is because during the lighthouse test, its rerendering the page and causing the auther details to change as they are added dynamically. In a real site, the data would be returned from the endpoint and we'd not have this issue

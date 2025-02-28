@@ -30,7 +30,8 @@ export const StyledWrapper = styled.div<{ $highlight?: boolean }>`
 
 export const StyledItem = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
+  padding-bottom: 5rem;
 
   @media ${({ theme }) => theme.devices.large} {
     border: 1px solid ${({ theme }) => theme.colors.grey};
