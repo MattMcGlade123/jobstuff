@@ -2,12 +2,15 @@
 import * as React from 'react';
 import Link from './link';
 
-type State = {
-    url: string,
-    text: string,
+type Props = {
+    description: string,
+    links: Array<{
+        text: string,
+        url: string
+    }>,
 };
 
-export default function DescriptionWithLinks({ description, links }: State) {
+export default function DescriptionWithLinks({ description, links }: Props) {
     return (
         <>
             <div>{description}</div>

@@ -7,8 +7,8 @@ import City from '../containers/city';
 export default function App() {
     return (
         <>
-            <Name />
-            <City />
+            <Name loading={false} />
+            <City loading={false} />
             <DescriptionWithLinks
                 description={`
 My favourite website is www.mixcloud.com and my profile can be found at https://www.mixcloud.com/spartacus/.

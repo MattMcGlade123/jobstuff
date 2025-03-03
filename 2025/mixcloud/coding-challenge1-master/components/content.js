@@ -1,13 +1,13 @@
 // @flow
 import React from 'react';
 
-type State = {
+type Props = {
     loading: boolean,
     error: ?Error,
     data: ?Object
 };
 
-export default function Content({ loading, error, data }: State) {
+export default function Content({ loading, error, data }: Props) {
     if (loading) {
         return <div>Loading..</div>;
     }

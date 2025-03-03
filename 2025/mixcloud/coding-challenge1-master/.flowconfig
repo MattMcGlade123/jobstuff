@@ -9,3 +9,4 @@
 ./flow-typed/
 
 [options]
+module.system=haste
