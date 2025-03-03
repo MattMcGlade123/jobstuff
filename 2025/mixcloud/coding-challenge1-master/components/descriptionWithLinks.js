@@ -12,7 +12,7 @@ export default function DescriptionWithLinks({ description, links }: State) {
         <>
             <div>{description}</div>
             {links && links.map((thisLink) => (
-                <div key={thisLink.text}>go to  <Link url={thisLink.text}>{thisLink.text}</Link></div>
+                <div key={thisLink.text}>go to  <Link url={thisLink.url}>{thisLink.text}</Link></div>
             ))}
         </>
     );

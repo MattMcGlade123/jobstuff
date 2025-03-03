@@ -1,15 +1,7 @@
 // @flow
 import React from 'react';
+import Content from './content';
 
 export default function Name({ loading, error, data }) {
-    if (loading) {
-        return <div>Loading..</div>;
-    }
-    if (error) {
-        return <div>Error!</div>;
-    }
-    if (data) {
-        return <h2>{data.name}</h2>;
-    }
-    return null;
+    return (<Content loading={loading} error={error} data={data?.name} />)
 }
