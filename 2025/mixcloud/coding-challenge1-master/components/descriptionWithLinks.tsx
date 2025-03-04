@@ -1,15 +1,24 @@
-import * as React from 'react';
+import React from 'react';
 import Link from './link';
 import { DescriptionWithLinksProps } from '../custom-types';
 
+const DescriptionWithLinks: React.FC<DescriptionWithLinksProps> = ({ description, links }) => {
+    const words = description.split(/(\s+)/);
 
-export default function DescriptionWithLinks({ description, links }: DescriptionWithLinksProps) {
-    return (
-        <>
-            <div>{description}</div>
-            {links && links.map((thisLink) => (
-                <div key={thisLink.text}>go to  <Link url={thisLink.url}>{thisLink.text}</Link></div>
-            ))}
-        </>
-    );
-}
+    const processedWords = words.map((word, index) => {
+        const cleanWord = word.replace(/[.,!?]+$/, ''); // Trim punctuation for matching
+        const link = links.find(({ url }) => url === cleanWord);
+
+        return link ? (
+            <Link key={index} url={link.url} >
+                {link.text}
+            </Link>
+        ) : (
+            word
+        );
+    });
+
+    return <div>{processedWords}</div>;
+};
+
+export default DescriptionWithLinks;

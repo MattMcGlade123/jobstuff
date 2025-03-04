@@ -10,7 +10,7 @@ export default function CityContainer({ loading, error, data }: CityProps) {
         setTimeout(() => {
             setFinalData({ loading: false, data: { city: 'London, UK' } });
         }, 2000);
-    },[]);
+    }, []);
 
     return (
         <City {...{ loading: finalData.loading, error: finalData.error, data: finalData.data }} />

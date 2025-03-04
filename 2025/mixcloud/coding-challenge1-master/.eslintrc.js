@@ -1,4 +1,9 @@
 module.exports = {
+    "import/resolver": {
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"]
+      }
+    },
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaVersion: 2020,
@@ -24,6 +29,7 @@ module.exports = {
     ],
     ignorePatterns: ['dist/**', 'node_modules/**', 'coverage/**', '*.config.js'],
     rules: {
+        'react/jsx-filename-extension': [2, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
         semi: 2,
         indent: [2, 4, { SwitchCase: 1 }],
         'array-callback-return': 1,
