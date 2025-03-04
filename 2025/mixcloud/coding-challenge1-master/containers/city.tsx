@@ -1,15 +1,10 @@
 // @flow
 import React, { useEffect, useState } from 'react';
 import City from '../components/city';
+import { CityProps } from '../custom-types';
 
-type Props = {
-    loading: boolean,
-    error: ?Error,
-    data: ?Object
-};
-
-export default function CityContainer({ loading, error, data }: Props) {
-    const [finalData, setFinalData] = useState({ loading, error, data });
+export default function CityContainer({ loading, error, data }: CityProps) {
+    const [finalData, setFinalData] = useState<CityProps>({ loading, error, data });
 
     useEffect(() => {
         setTimeout(() => {

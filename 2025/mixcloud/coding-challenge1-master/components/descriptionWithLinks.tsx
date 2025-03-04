@@ -1,16 +1,9 @@
-// @flow
 import * as React from 'react';
 import Link from './link';
+import { DescriptionWithLinksProps } from '../custom-types';
 
-type Props = {
-    description: string,
-    links: Array<{
-        text: string,
-        url: string
-    }>,
-};
 
-export default function DescriptionWithLinks({ description, links }: Props) {
+export default function DescriptionWithLinks({ description, links }: DescriptionWithLinksProps) {
     return (
         <>
             <div>{description}</div>

@@ -1,15 +1,10 @@
 // @flow
 import React, { useEffect, useState } from 'react';
 import Name from '../components/name';
+import { NameProps } from '../custom-types';
 
-type Props = {
-    loading: boolean,
-    error: ?Error,
-    data: ?Object
-};
-
-export default function Namecontainer({ loading, error, data }): React$Node {
-    const [finalData, setFinalData] = useState({ loading, error, data });
+export default function Namecontainer({ loading, error, data }: NameProps) {
+    const [finalData, setFinalData] = useState<NameProps>({ loading, error, data });
 
     useEffect(() => {
         setTimeout(() => {

@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react';
 import DescriptionWithLinks from './descriptionWithLinks';
 import Name from '../containers/name';
@@ -7,8 +6,8 @@ import City from '../containers/city';
 export default function App() {
     return (
         <>
-            <Name loading={false} />
-            <City loading={false} />
+            <Name loading={true} />
+            <City loading={true} />
             <DescriptionWithLinks
                 description={`
 My favourite website is www.mixcloud.com and my profile can be found at https://www.mixcloud.com/spartacus/.

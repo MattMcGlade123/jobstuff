@@ -1,13 +1,7 @@
-// @flow
-import React from 'react';
+import React, { FC } from 'react';
+import { ContentProps } from '../custom-types';
 
-type Props = {
-    loading: boolean,
-    error: ?Error,
-    data: ?Object
-};
-
-export default function Content({ loading, error, data }: Props) {
+export default function Content({ loading, error, data }: ContentProps) {
     if (loading) {
         return <div>Loading..</div>;
     }
